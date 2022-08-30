@@ -1,0 +1,17 @@
+.contador{
+    position: relative;
+    left: 70px;
+    display: inline-flex;
+    max-height: 30px;
+}
+.agregar{
+    position: relative;
+    left: 60px;
+  
+}
+.cantidad{
+   padding-left: 30px;
+   padding-right: 30px;
+   max-height: 30px;
+   font-size: 25px;
+}
