@@ -1,12 +1,13 @@
 
 import React from 'react';
 import CartWidget from '../CartWidget';
+import { FaCat } from 'react-icons/fa';
 import './styles.css'
 const NavBar = () => {
     return(
         <div><nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img class='logo' src="https://raw.githubusercontent.com/Alasalavip/ProyectoFinal-Naciff/master/imagenes/Logo.png" alt="logo" /> Black Cat Studios</a>
+          <a class="navbar-brand" href="#"><FaCat class="logo"/>Black Cat Studios</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
