@@ -1,0 +1,9 @@
+.control {
+    font-size: 80px;
+    margin: auto;
+}
+.card {
+    display: inline-flex;
+    padding: 20px;
+    margin: 20px;
+}
