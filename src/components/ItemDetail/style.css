@@ -1,0 +1,10 @@
+.product {
+    margin: auto;
+  padding: auto;
+  width: 900px;
+}
+.producto {
+    position: relative;
+    left: 270px;
+    padding-bottom: 20px;
+}
