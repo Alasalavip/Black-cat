@@ -6,4 +6,32 @@
     display: inline-flex;
     padding: 20px;
     margin: 20px;
+    width:550px ;
+    height: 860px;
+    cursor: pointer;
+}
+.card:hover{
+    transform: scale(1.06);
+    transition: 0.3s ease;
+    background-color: lightgray;
+}
+.producto {
+    width: 200px;
+    height: 270px;
+    position: relative;
+    left: 150px;
+}
+.fondo {
+    background-color: white;
+}
+h1 {
+    font-size: 40px;
+}
+h2 {
+    font-size: 30px;
+    position: absolute;
+    bottom: 10px;
+}
+h3 {
+    font-size: 20px;
 }

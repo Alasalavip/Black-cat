@@ -1,13 +1,19 @@
 import React from "react";
-import { IoLogoGameControllerB} from 'react-icons/io';
 import './style.css';
+import { useNavigate } from "react-router-dom";
 const Item = ({product}) => {
+    const navigate = useNavigate();
+    const handleNavigate = () => {
+        navigate('/detail/${product.id}')
+    }
     return (
-       <div class= "card">
-        <IoLogoGameControllerB class="control"/>
-        <h2>{product.name}</h2>
-        <h3>{product.descripcion}</h3>
-        <h4>Precio:{product.precio}</h4>
+       <div class= "card" onClick={handleNavigate}>
+        <div class="fondo">
+       <img class="producto" src={product.image}  alt="producto" />
+       </div>
+            <h1>{product.title}</h1>
+            <h3>{product.description}</h3>
+            <h2>${product.price}</h2>
        </div>
     )
 }
