@@ -8,6 +8,7 @@ import ItemDetail from "../../components/ItemDetail";
 const ItemDetailContainer = () => {
     const [productDetail, SetProductDetail] = useState({})
     const {productId} = useParams();
+    
     console.log(productId)
  
     useEffect (()=> {
@@ -28,6 +29,8 @@ const ItemDetailContainer = () => {
     console.log(productDetail);
     return (
         <ItemDetail product={productDetail}/>
+        
+        
     )
 }
 

@@ -4,8 +4,13 @@
     padding-right: 20px;
 }
 .derecha {
-    position: relative;
-    left: 1100px;
+    position: absolute;
+    right: 70px;
+}
+.cart {
+    position: absolute;
+    right: -40px;
+    font-size: 20px;
 }
 
 .navbar-brand{

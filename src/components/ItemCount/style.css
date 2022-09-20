@@ -1,12 +1,12 @@
 .contador{
     position: relative;
-    left: 70px;
+    left: 370px;
     display: inline-flex;
     max-height: 30px;
 }
 .agregar{
     position: relative;
-    left: 60px;
+    left: 360px;
   
 }
 .cantidad{
@@ -14,4 +14,6 @@
    padding-right: 30px;
    max-height: 30px;
    font-size: 25px;
+   position: relative;
+   top: 1px;
 }
