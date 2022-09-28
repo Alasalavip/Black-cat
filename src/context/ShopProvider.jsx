@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import { createContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Shop = createContext();
 
 const ShopProvider = ({children}) => {
     const [cart, setCart] = useState([])
-
+    const navigate = useNavigate
     const addItem = (item) => {
         const flag = isInCart(item.id);
         console.log(flag)
@@ -27,20 +28,22 @@ const ShopProvider = ({children}) => {
     const isInCart = (id) => {
         return cart.some(product => product.id === id)
     }
-    const removeItem = (product) => {
-        const cartRemove = product.cantidad-1
+    const removeItem = (itemToRemove) => {
+        const cartRemove = cart.filter(item => item !== itemToRemove);
         setCart(cartRemove)
         }
        
 
     const clearCart = () => {
-        //si se le da al boton de cler cart en cart (proxima entrega)
-        const cartVacio = cart.empty()
-        setCart(cartVacio)
+        setCart([])
+        
     }
+    const seguir = () => {
+        navigate('/')
+      }
 
     return (
-        <Shop.Provider value={{cart, addItem, removeItem, clearCart}}>
+        <Shop.Provider value={{cart, addItem, seguir, removeItem, clearCart}}>
              {children}
         </Shop.Provider>
     )
