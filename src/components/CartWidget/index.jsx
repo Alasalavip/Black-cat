@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import './style.css';
-import ShopProvider, { Shop } from "../../context/ShopProvider";
+import  { Shop } from "../../context/ShopProvider";
 const CartWidget = () => {
 const { itemsInCart,cart } = useContext(Shop)
 

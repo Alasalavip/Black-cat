@@ -9,9 +9,7 @@ const ItemDetail = ({product}) => {
     const [qty, setQty] = useState(0);
     const navigate = useNavigate(); 
     const {addItem} = useContext(Shop);
-    const seguir = () => {
-      navigate('/')
-    }
+  
     const agregarAlCarrito = (cantidad) => {
         setQty(cantidad);
       };

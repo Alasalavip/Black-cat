@@ -47,14 +47,14 @@ const ShopProvider = ({children}) => {
     const seguir = () => {
         navigate('/')
       }
-      const total = (acc,product) =>{
-        const total = cart.reduce((acc, product), acc += product.cantidad * product.price, 0)
-        console.log(total);
+      const total = () => {
+        const total = cart.reduce((acc, product) => acc += product.cantidad * product.price, 0)
         return total;
-      }
+    }
+      
 
     return (
-        <Shop.Provider value={{cart,itemsInCart ,addItem, seguir, removeItem, clearCart, total}}>
+        <Shop.Provider value={{cart,itemsInCart,setCart ,addItem, seguir, removeItem, clearCart, total}}>
              {children}
         </Shop.Provider>
     )

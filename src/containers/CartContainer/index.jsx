@@ -11,7 +11,7 @@ import './style.css'
 
 
 const Cart = () => {
-    const {cart, removeItem, clearCart, total } = useContext(Shop);
+    const {cart, removeItem, clearCart, total, setCart } = useContext(Shop);
     const navigate = useNavigate();
     const seguir = () => {
       navigate('/')
@@ -29,20 +29,30 @@ const Cart = () => {
           </Button>
         )
       }
-      const handleBuy = async() => {
-        const importeTotal = total()
-        const orden = ordenGenerada("Nadhir", "nadhir99@hotmail.com.ar", cart, importeTotal);
+      const handleBuy = async (product) => {
+        
+        const importeTotal = total();
+        const orden = ordenGenerada(
+            "Nadhir",
+            "nadhir99@gotmail.com.ar",
+            2615718643,
+            cart,
+            importeTotal
+        );
+        console.log(orden);
         const docRef = await addDoc(collection(db, "orders"), orden);
-        cart.forEach(async(productoEnCarrito)=>{
-          const productoRef = doc(db, "products", productoEnCarrito.id);
-          const productoSnap = await getDoc(productoRef);
-          await updateDoc(productoRef, {
-            stock: productoSnap.data().stock - productoEnCarrito.cantidad,
-          });
-        })
-
-        alert(`Se genero una nueva orden al nombre de : ${docRef.nombre}`+ `El id de la orden es: ${docRef.id}`);
-      }
+        cart.forEach(async (productoEnCarrito) => {
+            const productRef = doc(db, "products", productoEnCarrito.id);
+            const productSnap = await getDoc(productRef);
+            await updateDoc(productRef, {
+                stock: productSnap.data().stock - productoEnCarrito.quantity,
+            });
+        });
+        alert(
+            `Gracias por su compra! Se generó la orden generada con ID: ${docRef.id}`
+        );
+        setCart([])
+    };
       const columns = [
         { field: 'image', headerName: 'Vista', width: 250, renderCell: renderImage},
         { field: 'title', headerName: 'Producto', width: 450 },
