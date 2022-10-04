@@ -1,0 +1,11 @@
+.vacio {
+    position: absolute;
+    left: 40%;
+    top: 40%;
+} 
+.boton {
+    position: absolute;
+    left: 20%;
+    border: 1px;
+    color: blue;
+}

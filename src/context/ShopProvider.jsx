@@ -7,6 +7,12 @@ export const Shop = createContext();
 const ShopProvider = ({children}) => {
     const [cart, setCart] = useState([])
     const navigate = useNavigate
+    let itemsInCart = 0; 
+    cart.map((product) => {
+    itemsInCart = itemsInCart + product.cantidad;
+    return itemsInCart;
+ })
+ 
     const addItem = (item) => {
         const flag = isInCart(item.id);
         console.log(flag)
@@ -41,9 +47,14 @@ const ShopProvider = ({children}) => {
     const seguir = () => {
         navigate('/')
       }
+      const total = (acc,product) =>{
+        const total = cart.reduce((acc, product), acc += product.cantidad * product.price, 0)
+        console.log(total);
+        return total;
+      }
 
     return (
-        <Shop.Provider value={{cart, addItem, seguir, removeItem, clearCart}}>
+        <Shop.Provider value={{cart,itemsInCart ,addItem, seguir, removeItem, clearCart, total}}>
              {children}
         </Shop.Provider>
     )

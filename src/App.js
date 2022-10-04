@@ -9,8 +9,7 @@ function App() {
   return (
     <ShopProvider>
     <Router>
-    <NavBar/>
-
+    <NavBar condition={false}/>
     <Routes>
    <Route path='/' element={<ItemListContainer/>}/>
    <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
