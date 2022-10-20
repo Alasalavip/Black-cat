@@ -9,3 +9,7 @@
     border: 1px;
     color: blue;
 }
+.total {
+    position: absolute;
+    right: 30px;
+}

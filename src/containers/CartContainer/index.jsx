@@ -11,7 +11,7 @@ import './style.css'
 
 
 const Cart = () => {
-    const {cart, removeItem, clearCart, total, setCart } = useContext(Shop);
+    const {cart, removeItem,clearCart, total, setCart } = useContext(Shop);
     const navigate = useNavigate();
     const seguir = () => {
       navigate('/')
@@ -29,17 +29,23 @@ const Cart = () => {
           </Button>
         )
       }
-      const handleBuy = async (product) => {
-        
+      
+
+      const handleBuy = async () => {
+        const nombre = localStorage.getItem('nombre')
+        const email = localStorage.getItem('email')
+        const telefono = localStorage.getItem('telefono')
+        const direccion = localStorage.getItem('direccion')
         const importeTotal = total();
         const orden = ordenGenerada(
-            "Nadhir",
-            "nadhir99@gotmail.com.ar",
-            2615718643,
+            nombre,
+            email,
+            telefono,
+            direccion,
             cart,
             importeTotal
         );
-        console.log(orden);
+      
         const docRef = await addDoc(collection(db, "orders"), orden);
         cart.forEach(async (productoEnCarrito) => {
             const productRef = doc(db, "products", productoEnCarrito.id);
@@ -82,12 +88,16 @@ const Cart = () => {
       })
         const flag1 = (cart.length === 0)
         return (
-          flag1 ?
+        flag1 ?
+        
           <div className="vacio">
+             
             <h1>Su carro esta vacio</h1>
           <Button className="boton" onClick={seguir} color="info" variant="oulined">Agregar produtos</Button>
+       
           </div>
         :
+       
         <div style={{ height: 400, width: '100%' }}>
         <DataGrid
           rows={filas}
@@ -96,11 +106,15 @@ const Cart = () => {
           rowsPerPageOptions={[10]}
           rowHeight={150}
         />
+        <div className="total"><h4>Su total es: ${total()}</h4></div>
         <Button onClick={clearCart} color="error" variant="outlined">Clear cart</Button>
         <Button onClick={seguir} variant="outlined">Seguir comprando</Button>
         <Button onClick={handleBuy} variant="outlined">Confirmar compra</Button>
-        </div>
+        
+        </div> 
+     
     );} 
+    
        
             
     

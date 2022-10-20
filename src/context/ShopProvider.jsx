@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import { createContext } from "react";
 import { useNavigate } from "react-router-dom";
 
+
+
 export const Shop = createContext();
 
 const ShopProvider = ({children}) => {
@@ -12,10 +14,9 @@ const ShopProvider = ({children}) => {
     itemsInCart = itemsInCart + product.cantidad;
     return itemsInCart;
  })
- 
+
     const addItem = (item) => {
         const flag = isInCart(item.id);
-        console.log(flag)
         if (flag) {
             const cartModified = cart.map(product => {
                 if(product.id === item.id) {

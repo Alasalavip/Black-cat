@@ -7,9 +7,9 @@ const Item = ({product}) => {
         navigate(`/detail/${product.id}`)
     }
     return (
-       <div class= "card" onClick={handleNavigate}>
-        <div class="fondo">
-       <img class="producto" src={product.image}  alt="producto" />
+       <div className= "card" onClick={handleNavigate}>
+        <div className="fondo">
+       <img className="producto" src={product.image}  alt="producto" />
        </div>
             <h1>{product.title}</h1>
             <h3>{product.description}</h3>

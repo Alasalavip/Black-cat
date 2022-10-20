@@ -7,11 +7,13 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
 
 
+
 const ItemDetailContainer = () => {
     const [productDetail, SetProductDetail] = useState({})
+   
     const {productId} = useParams();
     
-    console.log(productId)
+  
  
     useEffect (()=> {
        
@@ -24,17 +26,18 @@ const ItemDetailContainer = () => {
             if (docSnap.exists()) {
             SetProductDetail({id: docSnap.id, ...docSnap.data()} )
             } else {
-            console.log("No such document!");
+            
             }
             } catch (error) {
-                console.log(error)
+                
             }
             
         }
         getProducts();
     }, [productId])
-    console.log(productDetail);
+   
     return (
+     
         <ItemDetail product={productDetail}/>
         
         
