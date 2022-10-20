@@ -4,7 +4,7 @@ Tienda de ropa, joyeria y tecnologia. Esta dividida en categorias para su facil 
 
 ## Librerias utilidadas
 
-**firebase**: Base de datos
-**react-icons**: Cart widget y logo de la tienda
-**react-router-dom**: Enrutamiento y navegacion
-**Sass** : Procesamiento de css y estetica de los componentes
+-**firebase**: Base de datos
+-**react-icons**: Cart widget y logo de la tienda
+-**react-router-dom**: Enrutamiento y navegacion
+-**Sass** : Procesamiento de css y estetica de los componentes
