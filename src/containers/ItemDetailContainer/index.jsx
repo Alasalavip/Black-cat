@@ -10,7 +10,7 @@ import { db } from "../../firebase/config";
 
 const ItemDetailContainer = () => {
     const [productDetail, SetProductDetail] = useState({})
-   
+   const [flag, setFlag] = useState(false)
     const {productId} = useParams();
     
   
@@ -29,7 +29,7 @@ const ItemDetailContainer = () => {
             
             }
             } catch (error) {
-                
+                setFlag(true)
             }
             
         }
@@ -37,8 +37,8 @@ const ItemDetailContainer = () => {
     }, [productId])
    
     return (
-     
-        <ItemDetail product={productDetail}/>
+    
+        <ItemDetail error={flag} product={productDetail}/>
         
         
     )

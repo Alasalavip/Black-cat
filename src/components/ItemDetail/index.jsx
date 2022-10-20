@@ -1,12 +1,11 @@
 import React, {useState} from "react";
 import { useContext } from "react";
-
 import { Shop } from "../../context/ShopProvider";
 import ItemCount from "../ItemCount";
 import Modal from "../Modal/modal";
 import './style.css';
 
-const ItemDetail = ({product}) => {
+const ItemDetail = ({product, error}) => {
     const [qty, setQty] = useState(0);
    
     const {addItem} = useContext(Shop);
@@ -23,9 +22,12 @@ const ItemDetail = ({product}) => {
         addItem(productToSave)
         abrir();
       }
-    
-      
+    const flag = error
+      console.log(flag)
     return(
+      flag ?
+      <h1>Error</h1>
+      :
         <div className="product">
             <img className="producto" src={product.image} width={250}  alt="producto" />
             <h1>{product.title}</h1>
